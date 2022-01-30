@@ -105,11 +105,39 @@ function updateProgressBar(e) {
     if (durationSeconds < 10) {
       durationSeconds = `0${durationSeconds}`;
     }
-    durattionEl.textContent = `${durationMinutes}:${durationSeconds}`;
+    // Delay switching duration Element to avoid NAN
+    if (durationSeconds) {
+      durattionEl.textContent = `${durationMinutes}:${durationSeconds}`;
+    }
+    // Calculate display for current
+    const currentMinutes = Math.floor(currentTime / 60);
+
+    let currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds < 10) {
+      currentSeconds = `0${currentSeconds}`;
+    }
+
+    currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
   }
+}
+
+// Set Progress Bar
+function setProgressBar(e) {
+  console.log(e);
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const { duration } = music;
+  //   console.log(width);
+  //   console.log(clickX);
+  //   console.log(duration);
+  //   console.log(clickX / width);
+  //   console.log((clickX / width) * duration);
+  music.currentTime = (clickX / width) * duration;
 }
 
 // Event Listeners
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
+music.addEventListener("ended", nextSong);
 music.addEventListener("timeupdate", updateProgressBar);
+progressContainer.addEventListener("click", setProgressBar);

@@ -103,3 +103,24 @@ function updateProgressBar(e) {
   }
 }
 ```
+
+## Set Progress Bar
+```javascript
+// Added 2 New Event Listeners
+progressContainer.addEventListener("click", setProgressBar);
+music.addEventListener("ended", nextSong);
+
+// Set Progress Bar
+function setProgressBar(e) {
+  console.log(e);
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const { duration } = music;
+  //   console.log(width);
+  //   console.log(clickX);
+  //   console.log(duration);
+  //   console.log(clickX / width);
+  //   console.log((clickX / width) * duration);
+  music.currentTime = (clickX / width) * duration;
+}
+```
