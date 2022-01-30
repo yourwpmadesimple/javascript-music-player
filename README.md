@@ -4,7 +4,7 @@
 [javascript]: https://github.com/yourwpmadesimple/javascript-navigation-animation/blob/master/javascript_banner.jpg "Javascript Banner"
 
 ## Songs Array (Artist, Title, Display Name)
-```json
+```javascript
 // Music
 const songs = [
   {
