@@ -40,3 +40,32 @@ function loadSong(song) {
   image.src = `img/${song.name}.jpg`;
 }
 ```
+
+## Next / Previous Functionality and Event Listeners
+```javascript
+// Current Song
+let songIndex = 0;
+
+// Previous Song
+function prevSong() {
+  songIndex--;
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+// Next Song
+function nextSong() {
+  songIndex++;
+  console.log(songIndex);
+  loadSong(songs[songIndex]);
+  playSong();
+}
+
+// on Load - Select First Song
+loadSong(songs[songIndex]);
+
+// Event Listeners
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
+```
