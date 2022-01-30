@@ -85,7 +85,7 @@ function updateProgressBar(e) {
   }
 }
 ```
-## Setting up Progress Bar
+## Setting up Progress Bar II
 ```javascript
 function updateProgressBar(e) {
   if (isPlaying) {
