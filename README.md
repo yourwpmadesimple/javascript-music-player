@@ -69,3 +69,19 @@ loadSong(songs[songIndex]);
 prevBtn.addEventListener("click", prevSong);
 nextBtn.addEventListener("click", nextSong);
 ```
+
+## Setting up Progress Bar
+```javascript
+// Get Element Additions
+const progressContainer = document.getElementById("progress-container");
+const progress = document.getElementById("progress");
+// Update Progress Bar & Time
+function updateProgressBar(e) {
+  if (isPlaying) {
+    const { duration, currentTime } = e.srcElement;
+    // Update Progress bar width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+  }
+}
+```
